@@ -63,8 +63,28 @@ This note proposes that we recognize that "User Batch" should cover the followin
 #. The system capacity is defined as an "amount of computing capacity equivalent to at least **userComputingFraction** (10%) of the total LSST data processing capacity (computing and storage) for the purpose of scientific analysis of LSST data and the production of Level 3 Data Products by external users".
 #. We have to provide a software framework to facilitate both catalog- and image-based user computation, which has to support systematic runs over collections of data and has to preserve provenance.
 #. The framework(s) has/have to support re-running standard computations from the pipelines in addition to running more free-form user jobs.
-#. There has to be a resource allocation mechanism to allow users to be given quotas, which can be modified per-user.
+#. There has to be a resource allocation mechanism to allow users to be given quotas, which can be modified per-user.  The association of quotas with defined groups of users (e.g., ad-hoc collaborations and/or formal Science Collaborations) would be a useful further capability.
 
+
+Additional Details and Assumptions
+==================================
+
+Because of the requirement to run standard pipelines and pipeline components, and the potential value it offers to users doing custom image processing, the User Batch system clearly has to support working with the PipelineTask / QuantumGraph / "activator" system, both to re-run standard pipelines and to construct pipelines of their own.
+
+While PipelineTask can also be used to organize catalog-to-catalog processing, it seems to provide less obvious value to user processing jobs for catalog data.
+We anticipate that users will be more likely to want to use community-standard bulk-data-processing frameworks for these use cases.
+
+We assume that the major catalogs from LSST will not only be available through Qserv but also through a spatially sharded set of Parquet files.
+In order to process such a dataset, contemporary frameworks such as Dask and/or Spark may be good choices, especially if supplemented by some Rubin-provided tooling and templates to assist users in applying these frameworks to the complete datasets.
+
+
+Use Cases
+=========
+
+Catalog Data Access
+-------------------
+
+We assume that most user analysis cases that involve spatially localized searches of the Object or Source table, and/or the retrieval of ForcedSource data for limited sets of Objects, will go to Qserv via the TAP service.
 
 
 
