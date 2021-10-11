@@ -48,13 +48,13 @@
 
    **This technote is not yet published.**
 
-   The long-under-defined user batch facility has been examined by the DM-SST and a proposed set of use cases and quasi-requirements on the facility has been produced.
+The long-under-defined user batch facility has been examined by the DM-SST and a proposed set of use cases and quasi-requirements on the facility has been produced.
 
 This document is not binding on the construction or operations project until further consideration - it is intended as a more concrete starting point for design efforts and commitments.
 
 What we colloquially call "User Batch" is a shorthand for a set of user-facing computational capabilities called for in the SRD, LSR, OSS, and DMSR using very generic language.
 
-The relevant existing requirements are summarized in the Confluence document `"Level 3 Definition and Traceability"<https://confluence.lsstcorp.org/display/DM/Level+3+Definition+and+Traceability>`__ (note that that page also covers Level 3 / "User Generated" data products).
+The relevant existing requirements are summarized in the Confluence document `"Level 3 Definition and Traceability" <https://confluence.lsstcorp.org/display/DM/Level+3+Definition+and+Traceability>`__ (note that that page also covers Level 3 / "User Generated" data products).
 
 This note proposes that we recognize that "User Batch" should cover the following capabilities:
 
