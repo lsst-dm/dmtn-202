@@ -125,9 +125,37 @@ Catalog Data Access
 -------------------
 
 
+Bulk reprocessing of commissioning data
+---------------------------------------
+
+During Rubin/LSST commissioning it will be necessary to reprocess the data collected to date with evolving versions of the pipelines. 
+
+
+Processing of simulated images
+------------------------------
+
+Many analyses will benefit from being able to compare the LSST data products with the same analysis run on simulated images or catalogs. 
+
+
+Reprocessing of images with fake sources injected
+-------------------------------------------------
+
+Injecting fakes sources into real survey images and then reprocessing the images is an important technique to evaluate the performance of data reduction pipelines. 
+Images with fake sources are an importnt tool to develop metrics with which to quantify the performance. 
+
+
 Re-estimation of sky background
 -------------------------------
+
 Low Surface Brightness (LSB) science is extremely sensitive to sky estimation. Traditional sky estimation techniques tend to compromise light from low surface brightness objects. Some LSB science can be achievd with the standard LSST data products but sky oversubtraction still occurs around bright sources, destroying some LSB flux in the process. To fully exploit the potential of LSST to discover LSB objects, alternative approaches for robust sky estimation that mitigate sky oversubtraction will need to be evaluated. Evaulating the efficacy of different approaches will require bulk reprocessing of PVIs, and eventually possibly running an alternative sky background estimation and subtraction algorithm on a subset of the LSST images. 
+
+Weak lensing and large-scale structure measurements are another example where optimizing sky subtraction is important. 
+
+Reprocessing to build systematic error budgets
+----------------------------------------------
+
+The Dark Energy Science Collaboration (DESC) anticipate that building systematic error budgets will require some reprocessing of the
+LSST images, at the level of ∼10 runs through ∼ 10% of the dataset (`LSST DESC Science Roadmap Version v2.6 <https://lsstdesc.org/assets/pdf/docs/DESC_SRM_latest.pdf>`__)
 
 
 Training matching learning classifiers 
@@ -145,7 +173,9 @@ Computing cross match catalogs between LSST and other catalogs, such as Gaia, is
 Computing periodigrams 
 ----------------------
 
-Computing periodograms on times series constructed from the ForcedSouce catalog. Periodograms yeild parameters that are used in supervised classification algorithms. 
+Computing periodograms on times series constructed from the ForcedSource catalog to yeild parameters that are used in supervised classification algorithms. 
+Periodgrams are compute intensive and can benefit from GPUs. 
+
 
 .. Add content here.
 .. Do not include the document title (it's automatically added from metadata.yaml).
