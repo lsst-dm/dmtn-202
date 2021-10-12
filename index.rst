@@ -125,6 +125,27 @@ Catalog Data Access
 -------------------
 
 
+Re-estimation of sky background
+-------------------------------
+Low Surface Brightness (LSB) science is extremely sensitive to sky estimation. Traditional sky estimation techniques tend to compromise light from low surface brightness objects. Some LSB science can be achievd with the standard LSST data products but sky oversubtraction still occurs around bright sources, destroying some LSB flux in the process. To fully exploit the potential of LSST to discover LSB objects, alternative approaches for robust sky estimation that mitigate sky oversubtraction will need to be evaluated. Evaulating the efficacy of different approaches will require bulk reprocessing of PVIs, and eventually possibly running an alternative sky background estimation and subtraction algorithm on a subset of the LSST images. 
+
+
+Training matching learning classifiers 
+--------------------------------------
+
+Supervised machine learning algorithms are central the classification of astronomical objects. 
+
+
+Cross matching with other astronomical catalogs
+-----------------------------------------------
+
+Computing cross match catalogs between LSST and other catalogs, such as Gaia, is central to modern astronomical analyses.
+
+
+Computing periodigrams 
+----------------------
+
+Computing periodograms on times series constructed from the ForcedSouce catalog. Periodograms yeild parameters that are used in supervised classification algorithms. 
 
 .. Add content here.
 .. Do not include the document title (it's automatically added from metadata.yaml).
