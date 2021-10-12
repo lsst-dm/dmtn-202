@@ -75,7 +75,10 @@ While PipelineTask can also be used to organize catalog-to-catalog processing, i
 We anticipate that users will be more likely to want to use community-standard bulk-data-processing frameworks for these use cases.
 
 We assume that the major catalogs from LSST will not only be available through Qserv but also through a spatially sharded set of Parquet files.
+(This is well-established "conventional wisdom" but perhaps not yet fully documented.)
 In order to process such a dataset, contemporary frameworks such as Dask and/or Spark may be good choices, especially if supplemented by some Rubin-provided tooling and templates to assist users in applying these frameworks to the complete datasets.
+These have been discussed in the context of the *Next to the Data Analysis* system, which has historically been discussed somewhat separately from "User Batch".
+
 
 
 Use Cases
