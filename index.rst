@@ -69,15 +69,52 @@ This note proposes that we recognize that "User Batch" should cover the followin
 Additional Details and Assumptions
 ==================================
 
-Because of the requirement to run standard pipelines and pipeline components, and the potential value it offers to users doing custom image processing, the User Batch system clearly has to support working with the PipelineTask / QuantumGraph / "activator" system, both to re-run standard pipelines and to construct pipelines of their own.
+Catalog processing
+------------------
 
-While PipelineTask can also be used to organize catalog-to-catalog processing, it seems to provide less obvious value to user processing jobs for catalog data.
-We anticipate that users will be more likely to want to use community-standard bulk-data-processing frameworks for these use cases.
+We assume that most user analysis cases that involve spatially localized searches of the Object or Source table, and/or the retrieval of ForcedSource data for limited sets of Objects, will go to Qserv via the TAP service, with the users then either analyzing the resulting tabular data in notebooks or externally.
+Therefore the catalog access use cases considered for "User Batch" should focus on wide-area processing, from, say, LMC scale up to the full sky.
+
+We anticipate that most users will want to use community-standard bulk-numeric-data-processing frameworks for these use cases.
+The priority should be on enabling their use.
 
 We assume that the major catalogs from LSST will not only be available through Qserv but also through a spatially sharded set of Parquet files.
 (This is well-established "conventional wisdom" but perhaps not yet fully documented.)
 In order to process such a dataset, contemporary frameworks such as Dask and/or Spark may be good choices, especially if supplemented by some Rubin-provided tooling and templates to assist users in applying these frameworks to the complete datasets.
-These have been discussed in the context of the *Next to the Data Analysis* system, which has historically been discussed somewhat separately from "User Batch".
+These have been discussed in the context of the *Next to the Data Analysis* system, which has historically been discussed somewhat separately from "User Batch", but which we suggest will be one aspect of this system.
+
+What distinguishes "User Batch" catalog processing from, for instance, interactive use of Dask might be that it is an "offline", asynchronous model for submitting work to the system.
+
+
+Image processing
+----------------
+
+We assume that many users wishing to do image processing will want to start with the components and pipelines of the standard image processing, modified for their own needs, over limited areas of sky.
+Others will wish to use community image processing tools, in most cases to perform further analysis of calibrated images, but perhaps also to do independent processing from earlier stages in our pipeline.
+
+A key use case is likely to involve processing of postage stamps from calibrated images around objects of particular interest and needing special treatment, such as time-dependent lenses.
+
+
+Capacity
+--------
+
+It has always been recognized that the "10%" would in no way be able to satisfy the needs of the dark energy analyses, with the DESC assumed to have access to substantial additional DOE-provided and other resources.
+Discussion of the use cases for the "User Batch" facility should focus on supporting a larger variety of smaller needs, consistent with the vision of the Rubin Observatory providing meaningful access to data, and the computing resources to explore it, to the broadest possible community.
+
+
+Framework support
+-----------------
+
+We anticipate considerable demand for running elements of the Science Pipelines code for image processing.
+It seems highly desirable for users to be able to use this code at the PipelineTask / QuantumGraph / "activator" level and not just at the Task level (though the latter is possible for users who wish to reuse our code in their own way).
+For this reason, as well as because we have a requirement to enable users to run the standard pipelines and recreate the canonical processing, the User Batch system clearly has to support working with the full Gen 3 workflow.
+We wish users both to be able to re-run standard pipelines and to construct pipelines of their own.
+
+For whatever actual batch execution system is provided (e.g., ``slurm``), basic support for mapping Gen3 "quantum" executions into that system should be provided.
+Experience from other projects suggests that users, left to their own devices, can manage this, but tend to do so in ways that may be unreliable, e.g., through incomplete understanding of the middleware, or produce access patterns stressful to underlying resources.
+
+While PipelineTask can also be used to organize catalog-to-catalog processing, it seems to provide less obvious value to user processing jobs for catalog data.
+As noted above, we anticipate that users will be more likely to want to use community-standard bulk-data-processing frameworks for these use cases.
 
 
 
@@ -86,8 +123,6 @@ Use Cases
 
 Catalog Data Access
 -------------------
-
-We assume that most user analysis cases that involve spatially localized searches of the Object or Source table, and/or the retrieval of ForcedSource data for limited sets of Objects, will go to Qserv via the TAP service.
 
 
 
