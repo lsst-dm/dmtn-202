@@ -140,7 +140,7 @@ Many analyses will benefit from being able to compare the LSST data products wit
 Reprocessing of images with fake sources injected
 -------------------------------------------------
 
-Injecting fakes sources into real survey images and then reprocessing the images is an important technique to evaluate the performance of data reduction pipelines. 
+Injecting fakes sources into real survey images and then reprocessing the images to produce to final imaging and catalogue data products is an important technique to evaluate the performance of data reduction pipelines. 
 Images with fake sources are an importnt tool to develop metrics with which to quantify the performance. 
 
 
