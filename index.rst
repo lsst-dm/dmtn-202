@@ -42,12 +42,6 @@
 
 .. sectnum::
 
-.. TODO: Delete the note below before merging new content to the master branch.
-
-.. note::
-
-   **This technote is not yet published.**
-
 The long-under-defined user batch facility has been examined by the DM-SST and a proposed set of use cases and quasi-requirements on the facility has been produced.
 
 This document is not binding on the construction or operations project until further consideration - it is intended as a more concrete starting point for design efforts and commitments.
