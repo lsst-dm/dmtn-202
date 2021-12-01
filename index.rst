@@ -182,7 +182,7 @@ However, true cross-matching is generally a science-case-specific activity and w
 Computing periodograms
 ----------------------
 
-Users will want to computing periodograms on time-series data obtained from the ForcedSource catalog, e.g., to yield parameters to be used in supervised classification algorithms.
+Users will want to compute periodograms on time-series data obtained from the ForcedSource catalog - for example, to yield parameters to be used in supervised classification algorithms.
 Note that periodograms are compute-intensive and can benefit from the availability of GPUs.
 
 
