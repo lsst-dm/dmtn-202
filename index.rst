@@ -147,6 +147,14 @@ Evaluating the efficacy of different approaches will require bulk reprocessing o
 Weak lensing and large-scale structure measurements are another example where optimizing sky subtraction is important.
 
 
+Analysis of unusually-shaped sources
+------------------------------------
+
+The analysis of unusually-shaped sources, such as strongly gravitationally lensed systems, and especially time-dependent lenses, is a key user case and is out of scope for the standard shape analysis in the pipelines.
+This will have to be done by users.
+Analysis of time-dependent lenses will require access to single-epoch (PVI) imagery, and may require access to the non-persisted uncompressed PVIs.
+
+
 Reprocessing to build systematic error budgets
 ----------------------------------------------
 
