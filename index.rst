@@ -128,11 +128,11 @@ Processing of simulated images
 Many analyses will benefit from being able to compare the LSST data products with the same analysis run on simulated images or catalogs.
 
 
-Reprocessing of images with fake sources injected
--------------------------------------------------
+Reprocessing of images with synthetic sources injected
+------------------------------------------------------
 
-Injecting fakes sources into real survey images and then reprocessing the images to produce to final imaging and catalogue data products is an important technique to evaluate the performance of data reduction pipelines.
-Images with fake sources are an important tool to develop metrics with which to quantify the performance.
+Injecting synthetic sources into real survey images and then reprocessing the images to produce to final imaging and catalogue data products is an important technique to evaluate the performance of data reduction pipelines.
+Images with synthetic sources are an important tool to develop metrics with which to quantify the performance.
 
 
 Re-estimation of sky background
@@ -143,6 +143,7 @@ Traditional sky estimation techniques tend to compromise light from low surface 
 Some LSB science can be achieved with the standard LSST data products; however, sky oversubtraction will still occur around bright sources, destroying some LSB flux in the process.
 To fully exploit the potential of LSST to discover LSB objects, alternative approaches for robust sky estimation that mitigate sky oversubtraction will need to be evaluated.
 Evaluating the efficacy of different approaches will require bulk reprocessing of PVIs, and eventually possibly running an alternative sky background estimation and subtraction algorithm on a subset of the LSST images.
+This is a task that would be done in the user community, with the option to feed proven rersults back into the standard pipelines for future releases. 
 
 Weak lensing and large-scale structure measurements are another example where optimizing sky subtraction is important.
 
