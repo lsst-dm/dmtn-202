@@ -42,13 +42,7 @@
 
 .. sectnum::
 
-.. TODO: Delete the note below before merging new content to the master branch.
-
-.. note::
-
-   **This technote is not yet published.**
-
-The long-under-defined user batch facility has been examined by the DM-SST and a proposed set of use cases and quasi-requirements on the facility has been produced.
+The long-under-defined "User Batch" facility has been examined by the DM-SST and a proposed set of use cases and quasi-requirements on the facility has been produced.
 
 This document is not binding on the construction or operations project until further consideration - it is intended as a more concrete starting point for design efforts and commitments.
 
@@ -117,13 +111,80 @@ While PipelineTask can also be used to organize catalog-to-catalog processing, i
 As noted above, we anticipate that users will be more likely to want to use community-standard bulk-data-processing frameworks for these use cases.
 
 
-
 Use Cases
 =========
 
-Catalog Data Access
--------------------
+Bulk reprocessing of commissioning data
+---------------------------------------
 
+During Rubin/LSST commissioning it will be necessary to reprocess the data collected to date with evolving versions of the pipelines.
+Much of this will be done as a formal operations activity, but during commissioning we will also rely on assistance from community scientists in assessing the Observatory's performance and planning observations to be taken.
+This work may require the use of User Batch resources if someone in this group wishes to perform a reprocessing with non-standard conditions or on special selections of data.
+
+
+Processing of simulated images
+------------------------------
+
+Many analyses will benefit from being able to compare the LSST data products with the same analysis run on simulated images or catalogs.
+
+
+Reprocessing of images with synthetic sources injected
+------------------------------------------------------
+
+Injecting synthetic sources into real survey images and then reprocessing the images to produce to final imaging and catalogue data products is an important technique to evaluate the performance of data reduction pipelines.
+Images with synthetic sources are an important tool to develop metrics with which to quantify the performance.
+
+
+Re-estimation of sky background
+-------------------------------
+
+Low Surface Brightness (LSB) science is extremely sensitive to sky estimation.
+Traditional sky estimation techniques tend to compromise light from low surface brightness objects.
+Some LSB science can be achieved with the standard LSST data products; however, sky oversubtraction will still occur around bright sources, destroying some LSB flux in the process.
+To fully exploit the potential of LSST to discover LSB objects, alternative approaches for robust sky estimation that mitigate sky oversubtraction will need to be evaluated.
+Evaluating the efficacy of different approaches will require bulk reprocessing of PVIs, and eventually possibly running an alternative sky background estimation and subtraction algorithm on a subset of the LSST images.
+This is a task that would be done in the user community, with the option to feed proven rersults back into the standard pipelines for future releases. 
+
+Weak lensing and large-scale structure measurements are another example where optimizing sky subtraction is important.
+
+
+Analysis of unusually-shaped sources
+------------------------------------
+
+The analysis of unusually-shaped sources, such as strongly gravitationally lensed systems, and especially time-dependent lenses, is a key user case and is out of scope for the standard shape analysis in the pipelines.
+This will have to be done by users.
+Analysis of time-dependent lenses will require access to single-epoch (PVI) imagery, and may require access to the non-persisted uncompressed PVIs.
+
+
+Reprocessing to build systematic error budgets
+----------------------------------------------
+
+The Dark Energy Science Collaboration (DESC) anticipate that building systematic error budgets will require some reprocessing of the LSST images,
+at the level of ∼10 runs through ∼10% of the dataset (`LSST DESC Science Roadmap Version v2.6 <https://lsstdesc.org/assets/pdf/docs/DESC_SRM_latest.pdf>`__).
+
+While processing at this scale is likely beyond the planned User Batch capacity, the User Batch system will be useful during the earlier stages of developing the processes involved,
+and it would ease the DESC's work if the workflow tooling allowed a workflow from the User Batch system to be readily tranferred to DESC-specific external resources.
+
+
+Training machine-learning classifiers
+-------------------------------------
+
+Supervised machine learning algorithms are central to the classification of astronomical objects.
+
+
+Cross matching with other astronomical catalogs
+-----------------------------------------------
+
+Computing cross match catalogs between LSST and other catalogs, such as Gaia, is central to modern astronomical analyses.
+Some level of this, for very widely used external catalogs, especially of the weaker "neighbor table" variety, may be done by the project (for instance, cross-matching with Gaia will be essential to internal quality control).
+However, true cross-matching is generally a science-case-specific activity and will be done by users with custom procedures.
+
+
+Computing periodograms
+----------------------
+
+Users will want to compute periodograms on time-series data obtained from the ForcedSource catalog - for example, to yield parameters to be used in supervised classification algorithms.
+Note that periodograms are compute-intensive and can benefit from the availability of GPUs.
 
 
 .. Add content here.
